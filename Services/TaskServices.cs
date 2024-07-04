@@ -57,6 +57,9 @@ namespace TasklistAPI.Services
                         itemcheck.Priority = Convert.ToInt32(input.Priority);
                         _context.Entry(itemcheck).State = EntityState.Modified;
                         await _context.SaveChangesAsync();
+                        response.message = "Success";
+                        response.data = itemcheck;
+                        response.status_code = HttpResponseCode.ResponseOK;
                     }
                     else
                     {
